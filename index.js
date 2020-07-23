@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { execSync } = require('child_process');
-const { stderr } = require('process');
+const { stderr, stdout } = require('process');
 const fs = require('fs')
 
 console.log('Entering release notes generator')
@@ -9,8 +9,8 @@ console.log('Entering release notes generator')
 try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
 
-    execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}"', (error, stdout, stderr) => {
-        if (error) {
+    const stdout = execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}"').toString()//, (error, stdout, stderr) => {
+    /*    if (error) {
             console.log(`exec error: ${error}`)
             core.setFailed(error.message);
         }
@@ -25,6 +25,9 @@ try {
             if (error) throw error;
             console.log('SAVED!');
         });*/
+    let commits = stdout.split("}");
+    commits.forEach(msg => {
+        console.log(msg)
     });
 } catch (error) {
     core.setFailed(error.message);
