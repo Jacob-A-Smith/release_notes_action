@@ -4,4 +4,10 @@
   "message": "typo fix",
   "date": "2020-07-23T15:59:23-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/aabde43ec3ff1fa50878f791c20ac69a43b030dc"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "another typo fix",
+  "date": "2020-07-23T16:22:48-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/c1e5056dfa50b1584f105bc168bdb81e4f3a55e2"
 }
