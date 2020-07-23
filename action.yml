@@ -4,7 +4,7 @@ inputs:
     path-to-file:
         description: 'Path to git log file'
         required: true
-        default: './gitlog.txt'
+        default: './release.json'
 outpus:
     success:
         description: indication of success or failure

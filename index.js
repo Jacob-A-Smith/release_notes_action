@@ -7,10 +7,11 @@ const fs = require('fs')
 console.log('Entering release notes generator')
 
 try {
-    console.log(`Path to file: ${core.getInput('path-to-file')}`);
+    // console.log(`Path to file: ${core.getInput('path-to-file')}`);
     // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
 
     const payload = github.context.payload
+    const pathToFile = core.getInput('path-to-input');
 
     entry = {
         "author": payload.head_commit.author.name,
@@ -21,12 +22,10 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    fs.writeFile("./release.json", JSON.stringify(entry, undefined, 2), err => {
+    fs.appendFile(pathToFile, JSON.stringify(entry, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
-
-
 } catch (error) {
     core.setFailed(error.message);
 }
