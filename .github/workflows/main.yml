@@ -14,4 +14,4 @@ jobs:
               shell: bash
             - name: generate notes
               id: gennotes
-              uses: ./index.js
+              uses: ./
