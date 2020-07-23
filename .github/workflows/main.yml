@@ -17,6 +17,7 @@ jobs:
               id: gennotes
               with:
                 path-to-file: "./actions/release_notes_generator/release.json"
+                branch-name: ${{ github.ref }}
             - name: commit release notes
               run: |-
                 git config --global user.email "release_notes@github.com"

@@ -5,6 +5,9 @@ inputs:
         description: 'Path to git log file'
         required: true
         default: './release.json'
+    branch-name:
+        description: 'Name of branch being pushed to'
+        required: true
 outputs:
     success:
         description: indication of success or failure
