@@ -9,12 +9,16 @@ console.log('Entering release notes generator')
 try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
 
-    exec('git log --pretty=format:"{%h - %an, %ae, %ad: %B}"', (error, stdout, stderr) => {
+    exec('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}"', (error, stdout, stderr) => {
         if (error) {
             console.log(`exec error: ${error}`)
             core.setFailed(error.message);
         }
-        console.log(`stdout: ${stdout.toString()}`)
+        // console.log(`stdout: ${stdout.toString()}`)
+        let strs = stdout.toString().split("}")
+        strs.forEach((msg) => {
+            console.log(msg)
+        });
         // console.error(`stderr: ${stderr}`)
 
         /*fs.writeFile('release.txt', stdout, (error) => {
