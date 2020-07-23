@@ -7,12 +7,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-            - name: git log step
-              id: gitlog
-              run: |
-                echo git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}" > log.txt
-              working-directory: ./
-              shell: bash
             - name: generate notes
               uses: ./
               id: gennotes
