@@ -9,6 +9,7 @@ console.log('Entering release notes generator')
 try {
     // console.log(`Path to file: ${core.getInput('path-to-file')}`);
     console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
+    console.log(`REF: ${core.getInput('branch-name')}`);
 
     const payload = github.context.payload
     const pathToFile = core.getInput('path-to-file');
