@@ -9,10 +9,10 @@ console.log('Entering release notes generator')
 try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
 
-    const stdout = execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}"').toString()//, (error, stdout, stderr) => {
+    const stdout = execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}" --all').toString()//, (error, stdout, stderr) => {
     /*    if (error) {
             console.log(`exec error: ${error}`)
-            core.setFailed(error.message);
+            core.setFailed(error.mes-sage);
         }
         // console.log(`stdout: ${stdout.toString()}`)
         let strs = stdout.toString().split("}")
