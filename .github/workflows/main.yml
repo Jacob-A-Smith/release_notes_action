@@ -11,6 +11,7 @@ jobs:
               id: gitlog
               run: |
                 echo git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}" > log.txt
+              working-directory: ./
               shell: bash
             - name: generate notes
               uses: ./
