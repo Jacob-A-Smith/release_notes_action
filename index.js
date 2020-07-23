@@ -14,13 +14,13 @@ try {
             console.log(`exec error: ${error}`)
             core.setFailed(error.message);
         }
-        console.log(`stdout: ${stdout}`)
-        console.error(`stderr: ${stderr}`)
+        console.log(`stdout: ${stdout.toString()}`)
+        // console.error(`stderr: ${stderr}`)
 
-        fs.writeFile('release.txt', stdout, (error) => {
+        /*fs.writeFile('release.txt', stdout, (error) => {
             if (error) throw error;
             console.log('SAVED!');
-        });
+        });*/
     });
 } catch (error) {
     core.setFailed(error.message);
