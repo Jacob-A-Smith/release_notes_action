@@ -11,7 +11,7 @@ jobs:
               uses: ./
               id: gennotes
               with:
-                path-to-file: "./.github/workflows/log.txt"
+                path-to-file: "./release.json"
             - name: commit release notes
               run: |-
                 git config --global user.email "release_notes@github.com"
