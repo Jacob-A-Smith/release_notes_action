@@ -10,7 +10,7 @@ jobs:
             - name: git log step
               id: gitlog
               run: |
-                git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}" > log.txt
+                echo git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}" > log.txt
               shell: bash
             - name: generate notes
               uses: ./
