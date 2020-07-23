@@ -10,4 +10,10 @@
   "message": "another typo fix",
   "date": "2020-07-23T16:22:48-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/c1e5056dfa50b1584f105bc168bdb81e4f3a55e2"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "reorganize file structure",
+  "date": "2020-07-23T16:58:08-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/77c0950624344b024ca814c25e38f8af3f80c43f"
 }
