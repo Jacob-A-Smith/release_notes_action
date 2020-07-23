@@ -19,7 +19,7 @@ try {
         "date": payload.head_commit.timestamp,
         "git url": payload.head_commit.url
     }
-    console.log(`Commit: ${entry}`);
+    console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
 
 } catch (error) {
