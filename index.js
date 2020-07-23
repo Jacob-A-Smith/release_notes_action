@@ -21,7 +21,7 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    fs.writeFile("release_notes.json", JSON.stringify(entry, undefined, 2), err => {
+    fs.writeFile("./release.json", JSON.stringify(entry, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
