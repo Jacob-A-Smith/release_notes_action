@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 // const { spawn } = require('child_process');
 // const { stderr, stdout } = require('process');
-// const fs = require('fs')
+const fs = require('fs')
 
 console.log('Entering release notes generator')
 
@@ -20,6 +20,11 @@ try {
         "git url": payload.head_commit.url
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
+
+    fs.writeFile("release_notes.json", JSON.stringify(entry, undefined, 2), err => {
+        if (err) throw err;
+        console.log("done writing");
+    });
 
 
 } catch (error) {
