@@ -8,7 +8,7 @@ console.log('Entering release notes generator')
 try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
 
-    exec('git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}" > log.txt', (error, stdout, stderr) => {
+    exec('git log --pretty=format:"{%h, %t, %p  - %an, %ae, %ad: %B}"', (error, stdout, stderr) => {
         if (error) {
             console.log(`exec error: ${error}`)
             core.setFailed(error.message);
