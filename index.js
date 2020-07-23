@@ -10,7 +10,7 @@ try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
     // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
 
-    const payload = JSON.stringify(github.context.payload)
+    const payload = github.context.payload
 
     entry = {
         "author": payload.head_commit.author.name,
