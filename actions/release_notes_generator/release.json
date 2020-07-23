@@ -22,4 +22,10 @@
   "message": "git push filepath update",
   "date": "2020-07-23T17:06:38-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/f929366830492de4f29f0016b939ab206cc390d1"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "add git pull",
+  "date": "2020-07-23T17:08:46-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/6e494156c851bdc5128b99631df9ed95b6cadbb6"
 }
