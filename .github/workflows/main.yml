@@ -8,7 +8,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
             - name: generate notes
-              uses: ./
+              uses: ./actions/release_notes_generator
               id: gennotes
               with:
                 path-to-file: "./release.json"
