@@ -15,5 +15,3 @@ jobs:
             - name: generate notes
               id: gennotes
               uses: ./index.js
-              with: 
-                ./.github/workflows/log.txt
