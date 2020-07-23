@@ -16,4 +16,10 @@
   "message": "reorganize file structure",
   "date": "2020-07-23T16:58:08-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/77c0950624344b024ca814c25e38f8af3f80c43f"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "git push filepath update",
+  "date": "2020-07-23T17:06:38-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/f929366830492de4f29f0016b939ab206cc390d1"
 }
