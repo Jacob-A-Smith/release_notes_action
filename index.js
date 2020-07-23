@@ -8,8 +8,9 @@ console.log('Entering release notes generator')
 
 try {
     console.log(`Path to file: ${core.getInput('path-to-file')}`);
+    console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
 
-    // const stdout = execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}*" --all').toString()//, (error, stdout, stderr) => {
+    // const stdout = execSync('git log --pretty=format:"{"hash": "%h", "author": "%an", "email": "%ae", "date": "%ad", "message": "%B"}" --all').toString()//, (error, stdout, stderr) => {
     /*    if (error) {
             console.log(`exec error: ${error}`)
             core.setFailed(error.mes-sage);
