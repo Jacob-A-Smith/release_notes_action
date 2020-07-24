@@ -1,34 +1,84 @@
+name: Release note logger
+
 on:
   push:
-    # branches:
-      # - master
-      # - staging
-      # - develop
+    branches:
+      - master
+      - staging
+      - develop
+
+env:
+  MASTER: refs/heads/master
+  STAGING: refs/heads/staging
+  DEVELOP: refs/heads/develop
 
 jobs:
-    release_gen_job:
-        runs-on: ubuntu-latest
-        name: A job to generate release notes
-        env: 
-          REF_MASTER: "refs/heads/master"
-          REF_STAGING: "refs/heads/staging"
-          REF_DEVELOP: "refs/heads/develop"
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: generate notes
-              if: ${{ success() }}
-              uses: ./actions/release_notes_generator
-              id: gennotes
-              with:
-                path-to-file: "./actions/release_notes_generator/release.json"
-                master-branch: ${{ env.REF_MASTER }}
-                staging-branch: ${{ env.REF_STAGING }}
-                develop-branch: ${{ env.REF_DEVELOP }}
-            - name: commit release notes
-              if: ${{ success() }}
-              run: |-
-                git config --global user.email "release_notes@github.com"
-                git config --global user.name "RELEASE-bot"
-                git diff --quiet || (git add ./actions/release_notes_generator/release.json && git commit -m "Updated Release notes")
-                git push
+  develop_logger:
+    if: github.ref == 'refs/heads/develop'
+    # env: 
+      # DEVELOP: "refs/heads/develop"
+    runs-on: ubuntu-latest
+    name: Generates notes for develop commits
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: generate notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        # id: gen_notes_dev
+        with:
+          path-to-file: "./actions/release_notes_generator/changelogs/develop_changelog.json"
+          branch-ref: ${{ env.DEVELOP }}
+      - name: commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "release_notes@github.com"
+          git config --global user.name "RELEASE-bot"
+          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/develop_changelog.json && git commit -m "Updated Release notes")
+          git push
+  staging_logger:
+    if: github.ref == 'refs/heads/staging'
+    # env:
+      # STAGING: "refs/heads/staging"
+    runs-on: ubuntu-latest
+    name: Generates notes for staging commits
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: generate notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        # id: gennotes
+        with:
+          path-to-file: "./actions/release_notes_generator/changelogs/staging_changlog.json"
+          branch-ref: ${{ env.STAGING }}
+      - name: commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "release_notes@github.com"
+          git config --global user.name "RELEASE_bot"
+          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
+          git push
+  master_logger:
+    if: github.ref == 'refs/heads/master'
+    # env:
+      # MASTER: "refs/heads/master"
+    runs-on: ubuntu-latest
+    name: Generates notes for master commits
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: generate notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        # id: gennotes
+        with:
+          path-to-file: "./actions/release_notes_generator/changelogs/master_changelog.json"
+          branch-ref: ${{ env.MASTER }}
+      - name: commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "release_notes@github.com"
+          git config --global user.name "RELEASE_bot"
+          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/master_changelog.json && git commit -m "Updated Release notes")
+          git push
