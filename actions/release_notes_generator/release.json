@@ -40,4 +40,10 @@
   "message": "Merge branch 'master' of ssh://github.com/Jacob-A-Smith/release_notes_action",
   "date": "2020-07-23T17:37:55-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/c841fe249a77d088a0d8f42ca6d132a2806d38e0"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "env vars for branch refs",
+  "date": "2020-07-23T20:03:41-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/b629fd34e9ffce8ddb1dc15b6a813357e2b1549d"
 }
