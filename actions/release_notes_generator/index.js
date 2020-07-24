@@ -30,14 +30,9 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    let prevCommits
-    fs.readFileSync(pathToFile, 'utf8', (err, data) => {
-        if (err) throw err
-        console.log(data)
-        prevCommits = data
-    });
+    let prevCommits = fs.readFileSync(pathToFile, 'utf8').toString();
 
-    fs.writeFileSync(pathToFile, prevCommits + JSON.stringify(entry, undefined, 2), err => {
+    fs.writeFile(pathToFile, prevCommits + JSON.stringify(entry, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
