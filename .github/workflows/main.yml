@@ -12,13 +12,10 @@ env:
   REF_STAGING: "refs/heads/staging"
   REF_DEVELOP: "refs/heads/develop"
 
-defaults:
-  runs-on: ubuntu-latest
-
 jobs:
   develop_logger:
     if: ${{ github.ref == REF_DEVELOP}}
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
       - name: Checkout
@@ -39,7 +36,7 @@ jobs:
           git push
   staging_logger:
     if: ${{ github.ref == REF_STAGING }}
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     name: Generates notes for staging commits
     steps:
       - name: Checkout
@@ -61,7 +58,7 @@ jobs:
           git push
   master_logger:
     if: ${{ github.ref == REF_MASTER }}
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     name: Generates notes for master commits
     steps:
       - name: Checkout
