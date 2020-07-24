@@ -1,3 +1,11 @@
 {
-  "history": []
+  "history": [
+    {
+      "author": "Jacob Smith",
+      "email": "jsmith@sparkfly.com",
+      "message": "append new entry to file",
+      "date": "2020-07-24T15:55:31-04:00",
+      "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/0704f3ed199e44a40ea709b5c115da32cc999df9"
+    }
+  ]
 }
