@@ -14,9 +14,12 @@ try {
 
     const payload = github.context.payload
     const pathToFile = core.getInput('path-to-file');
+    const master = core.getInput('master-branch');
+    const staging = core.getInput('staging-branch')
+    const develop = core.getInput('develop-branch')
 
     // let refs = stringify(github.context.payload.ref).split("/")[2] // ?
-    console.log(`REFS: Master: ${core.getInput('master-branch')} - Staging: ${core.getInput('staging-branch')} - Develop: ${core.getInput('develop-branch')}`);
+    console.log(`REFS: Master: ${master} - Staging: ${staging} - Develop: ${develop}`);
 
     entry = {
         "author": payload.head_commit.author.name,
@@ -27,10 +30,27 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
+    fs.readFile(file, 'utf8', (err, data) => {
+        if (err) throw err
+        console.log(data)
+    });
+
     fs.appendFile(pathToFile, JSON.stringify(entry, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
+
+    switch (payload.ref) {
+        case master:
+            break;
+        case staging:
+            break;
+        case develop:
+            break;
+        default:
+            break;
+    }
+
 } catch (error) {
     core.setFailed(error.message);
 }
