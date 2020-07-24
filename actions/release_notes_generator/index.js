@@ -30,28 +30,36 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    let prevCommits = fs.readFileSync(pathToFile, 'utf8').toString();
-
-    fs.writeFile(pathToFile, prevCommits + JSON.stringify(entry, undefined, 2), err => {
-        if (err) throw err;
-        console.log("done writing");
-    });
+    let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2);
 
     switch (payload.ref) {
         case master:
             console.log("MASTER")
+            appendToDevelop(entry, prevCommits, "master")
             break;
         case staging:
             console.log("STAGING")
             break;
         case develop:
             console.log("DEVELOP")
+            // appendToDevelop(entry, prevCommits, "develop")
             break;
         default:
             console.log("DEFAULT")
             break;
     }
 
+    fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
+        if (err) throw err;
+        console.log("done writing");
+    });
 } catch (error) {
     core.setFailed(error.message);
+}
+
+function appendToDevelop(commit, prevCommits, branchRef) {
+    if (!(branchRef in prevCommits)) {
+        prevCommits[branchRef] = []
+    }
+    prevCommits[branchRef].push(commit)
 }
