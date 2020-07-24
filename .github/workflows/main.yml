@@ -50,14 +50,14 @@ jobs:
         uses: ./actions/release_notes_generator
         # id: gennotes
         with:
-          path-to-file: "./actions/release_notes_generator/changelogs/staging_changlog.json"
+          path-to-file: "./actions/release_notes_generator/changelogs/staging_changelog.json"
           branch-ref: ${{ env.STAGING }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
           git config --global user.email "release_notes@github.com"
           git config --global user.name "RELEASE_bot"
-          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
+          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changelog.json && git commit -m "Updated Release notes")
           git push
   master_logger:
     if: github.ref == 'refs/heads/master'
