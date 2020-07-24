@@ -7,14 +7,16 @@ on:
       - staging
       - develop
 
-env:
-  REF_MASTER: "refs/heads/master"
-  REF_STAGING: "refs/heads/staging"
-  REF_DEVELOP: "refs/heads/develop"
+# env:
+#   REF_MASTER: "refs/heads/master"
+#   REF_STAGING: "refs/heads/staging"
+#   REF_DEVELOP: "refs/heads/develop"
 
 jobs:
   develop_logger:
-    if: ${{ github.ref == env.REF_DEVELOP}}
+    env: 
+      DEVELOP: "refs/heads/develop"
+    if: ${{ github.ref == env.DEVELOP}}
     runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
@@ -26,7 +28,7 @@ jobs:
         # id: gen_notes_dev
         with:
           path-to-file: "./actions/release_notes_generator/develop_changelog.json"
-          branch-ref: ${{ env.REF_DEVELOP }}
+          branch-ref: ${{ env.DEVELOP }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
@@ -35,7 +37,9 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/develop_changelog.json && git commit -m "Updated Release notes")
           git push
   staging_logger:
-    if: ${{ github.ref == env.REF_STAGING }}
+    env:
+      STAGING: "refs/heads/staging"
+    if: ${{ github.ref == env.STAGING }}
     runs-on: ubuntu-latest
     name: Generates notes for staging commits
     steps:
@@ -47,7 +51,7 @@ jobs:
         # id: gennotes
         with:
           path-to-file: "./actions/release_notes_generator/staging_changlog.json"
-          branch-ref: ${{ env.REF_STAGING }}
+          branch-ref: ${{ env.STAGING }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
@@ -56,7 +60,9 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
           git push
   master_logger:
-    if: ${{ github.ref == env.REF_MASTER }}
+    env:
+      MASTER: "refs/heads/master"
+    if: ${{ github.ref == env.MASTER }}
     runs-on: ubuntu-latest
     name: Generates notes for master commits
     steps:
@@ -68,7 +74,7 @@ jobs:
         # id: gennotes
         with:
           path-to-file: "./actions/release_notes_generator/master_changelog.json"
-          branch-ref: ${{ env.REF_MASTER }}
+          branch-ref: ${{ env.MASTER }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
