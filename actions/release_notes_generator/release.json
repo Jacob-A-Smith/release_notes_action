@@ -22,6 +22,13 @@
       "message": "debugging",
       "date": "2020-07-24T09:41:02-04:00",
       "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/ca61ad55d77ddebb8e4d91e479cc3395b95a1f3f"
+    },
+    {
+      "author": "RELEASE-bot",
+      "email": "release_notes@github.com",
+      "message": "Updated Release notes",
+      "date": "2020-07-24T13:51:19Z",
+      "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/80cd5bc0540b39d271ea393293d2548c48d61371"
     }
   ],
   "staging": [
