@@ -27,7 +27,7 @@ jobs:
         uses: ./actions/release_notes_generator
         # id: gen_notes_dev
         with:
-          path-to-file: "./actions/release_notes_generator/develop_changelog.json"
+          path-to-file: "./actions/release_notes_generator/changelogs/develop_changelog.json"
           branch-ref: ${{ env.DEVELOP }}
       - name: commit release notes
         if: ${{ success() }}
@@ -50,7 +50,7 @@ jobs:
         uses: ./actions/release_notes_generator
         # id: gennotes
         with:
-          path-to-file: "./actions/release_notes_generator/staging_changlog.json"
+          path-to-file: "./actions/release_notes_generator/changelogs/staging_changlog.json"
           branch-ref: ${{ env.STAGING }}
       - name: commit release notes
         if: ${{ success() }}
@@ -73,7 +73,7 @@ jobs:
         uses: ./actions/release_notes_generator
         # id: gennotes
         with:
-          path-to-file: "./actions/release_notes_generator/master_changelog.json"
+          path-to-file: "./actions/release_notes_generator/changelogs/master_changelog.json"
           branch-ref: ${{ env.MASTER }}
       - name: commit release notes
         if: ${{ success() }}
