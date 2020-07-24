@@ -19,7 +19,7 @@ try {
     const develop = core.getInput('develop-branch')
 
     // let refs = stringify(github.context.payload.ref).split("/")[2] // ?
-    console.log(`REFS: Master: ${master} - Staging: ${staging} - Develop: ${develop}`);
+    // console.log(`REFS: Master: ${master} - Staging: ${staging} - Develop: ${develop}`);
 
     entry = {
         "author": payload.head_commit.author.name,
@@ -30,24 +30,30 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    fs.readFile(file, 'utf8', (err, data) => {
+    let prevCommits
+    fs.readFileSync(pathToFile, 'utf8', (err, data) => {
         if (err) throw err
         console.log(data)
+        prevCommits = data
     });
 
-    fs.appendFile(pathToFile, JSON.stringify(entry, undefined, 2), err => {
+    fs.writeFileSync(pathToFile, prevCommits + JSON.stringify(entry, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
 
     switch (payload.ref) {
         case master:
+            console.log("MASTER")
             break;
         case staging:
+            console.log("STAGING")
             break;
         case develop:
+            console.log("DEVELOP")
             break;
         default:
+            console.log("DEFAULT")
             break;
     }
 
