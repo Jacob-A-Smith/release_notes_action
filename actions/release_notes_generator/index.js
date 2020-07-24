@@ -2,17 +2,21 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 // const { spawn } = require('child_process');
 // const { stderr, stdout } = require('process');
-const fs = require('fs')
+const fs = require('fs');
+const { stringify } = require('querystring');
 
 console.log('Entering release notes generator')
 
 try {
     // console.log(`Path to file: ${core.getInput('path-to-file')}`);
     console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
-    console.log(`REF: ${core.getInput('branch-name')}`);
+    // console.log(`REF: ${core.getInput('branch-name')}`);
 
     const payload = github.context.payload
     const pathToFile = core.getInput('path-to-file');
+
+    // let refs = stringify(github.context.payload.ref).split("/")[2] // ?
+    console.log(`REFS: Master: ${core.getInput('master-branch')} - Staging: ${core.getInput('staging-branch')} - Develop: ${core.getInput('develop-branch')}`);
 
     entry = {
         "author": payload.head_commit.author.name,

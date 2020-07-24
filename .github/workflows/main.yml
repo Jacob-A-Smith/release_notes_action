@@ -9,6 +9,10 @@ jobs:
     release_gen_job:
         runs-on: ubuntu-latest
         name: A job to generate release notes
+        env: 
+          REF_MASTER: "refs/heads/master"
+          REF_STAGING: "refs/heads/staging"
+          REF_DEVELOP: "refs/heads/develop"
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -17,7 +21,9 @@ jobs:
               id: gennotes
               with:
                 path-to-file: "./actions/release_notes_generator/release.json"
-                branch-name: ${{ github.ref }}
+                master-branch: ${{ env.REF_MASTER }}
+                staging-branch: ${{ env.REF_STAGING }}
+                develop-branch: ${{ env.REF_DEVELOP }}
             - name: commit release notes
               run: |-
                 git config --global user.email "release_notes@github.com"

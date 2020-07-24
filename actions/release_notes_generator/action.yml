@@ -5,8 +5,14 @@ inputs:
         description: 'Path to git log file'
         required: true
         default: './release.json'
-    branch-name:
-        description: 'Name of branch being pushed to'
+    master-branch:
+        description: 'ref to master'
+        required: true
+    staging-branch:
+        description: 'ref to staging'
+        required: true
+    develop-branch:
+        description: 'ref to develop'
         required: true
 outputs:
     success:
