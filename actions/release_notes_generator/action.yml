@@ -10,7 +10,7 @@ inputs:
         required: true
     base-branch:
         description: 'git ref to base branch'
-        required: true
+        required: false
 outputs:
     success:
         description: indication of success or failure
