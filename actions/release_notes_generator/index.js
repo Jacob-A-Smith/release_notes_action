@@ -22,8 +22,9 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2) || { "history": [] };
-    prevCommits["history"].push(entry)
+    // let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2) || { "history": [] };
+    // prevCommits["history"].push(entry)
+    let prevCommits = readPrevCommits(pathToFile)
 
     fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
@@ -32,6 +33,18 @@ try {
 
 } catch (error) {
     core.setFailed(error.message);
+}
+
+function readPrevCommits(filepath) {
+    let data = fs.readFileSync(pathToFile, 'utf8').toString()
+    if (data) {
+        try {
+            prevCommits = JSON.parse(data)
+        } catch (e) {
+            console.log(`error parsing: ${e}`);
+        }
+    }
+    return { "history": [] };
 }
 /*
 function getSummary(commits) {
