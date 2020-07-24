@@ -13,19 +13,32 @@ try {
     console.log(`BRANCH NAME: ${branch} --- PATH TO FILE: ${pathToFile}`);
 
 
-    entry = {
-        "author": payload.head_commit.author.name,
-        "email": payload.head_commit.author.email,
-        "message": payload.head_commit.message,
-        "date": payload.head_commit.timestamp,
-        "git url": payload.head_commit.url
+    /* entry = {
+         "author": payload.head_commit.author.name,
+         "email": payload.head_commit.author.email,
+         "message": payload.head_commit.message,
+         "date": payload.head_commit.timestamp,
+         "git url": payload.head_commit.url
+     }*/
+    let entries = []
+    for (i = 0; i < payload.commits.length; ++i) {
+        entries.push({
+            "author": payload.commits[i].author.name,
+            "email": payload.commits[i].author.email,
+            "message": commits[i].message,
+            "date": commits[i].timestamp,
+            "git url": payload.commits[i].url
+        })
     }
-    console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
+    console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
     // let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2) || { "history": [] };
     // prevCommits["history"].push(entry)
     let prevCommits = readPrevCommits(pathToFile)
-    prevCommits.history.push(entry)
+    // prevCommits.history.push(entry)
+    entries.forEach((entry) => {
+        prevCommits.history.push(entry)
+    })
 
     fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
