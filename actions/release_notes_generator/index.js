@@ -33,9 +33,10 @@ try {
     console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
     let prevCommits = readPrevCommits(pathToFile)
-    entries.forEach((entry) => {
-        prevCommits.history.push(entry)
-    })
+    prevCommits.history.concat(entries)
+    // entries.forEach((entry) => {
+    // prevCommits.history.push(entry)
+    // })
 
     fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
