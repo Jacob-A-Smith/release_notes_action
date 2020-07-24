@@ -18,8 +18,7 @@ try {
         "email": payload.head_commit.author.email,
         "message": payload.head_commit.message,
         "date": payload.head_commit.timestamp,
-        "git url": payload.head_commit.url,
-        "summary": getSummary(payload.commits)
+        "git url": payload.head_commit.url
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
@@ -34,10 +33,10 @@ try {
 } catch (error) {
     core.setFailed(error.message);
 }
-
+/*
 function getSummary(commits) {
     console.log("Reduce commits")
     return commits.reduce((total, currentVal) => {
         return total += currentVal.message + ", "
     })
-}
+}*/
