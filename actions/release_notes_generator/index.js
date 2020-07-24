@@ -25,8 +25,8 @@ try {
         entries.push({
             "author": payload.commits[i].author.name,
             "email": payload.commits[i].author.email,
-            "message": commits[i].message,
-            "date": commits[i].timestamp,
+            "message": payload.commits[i].message,
+            "date": payload.commits[i].timestamp,
             "git url": payload.commits[i].url
         })
     }
