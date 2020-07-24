@@ -1,34 +1,37 @@
+name: Release note logger
+
 on:
   push:
-    # branches:
-      # - master
-      # - staging
-      # - develop
+    branches:
+      - master
+      - staging
+      - develop
+
+env:
+  REF_MASTER: "refs/heads/master"
+  REF_STAGING: "refs/heads/staging"
+  REF_DEVELOP: "refs/heads/develop"
 
 jobs:
-    release_gen_job:
-        runs-on: ubuntu-latest
-        name: A job to generate release notes
-        env: 
-          REF_MASTER: "refs/heads/master"
-          REF_STAGING: "refs/heads/staging"
-          REF_DEVELOP: "refs/heads/develop"
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: generate notes
-              if: ${{ success() }}
-              uses: ./actions/release_notes_generator
-              id: gennotes
-              with:
-                path-to-file: "./actions/release_notes_generator/release.json"
-                master-branch: ${{ env.REF_MASTER }}
-                staging-branch: ${{ env.REF_STAGING }}
-                develop-branch: ${{ env.REF_DEVELOP }}
-            - name: commit release notes
-              if: ${{ success() }}
-              run: |-
-                git config --global user.email "release_notes@github.com"
-                git config --global user.name "RELEASE-bot"
-                git diff --quiet || (git add ./actions/release_notes_generator/release.json && git commit -m "Updated Release notes")
-                git push
+  develop_to_staging:
+    # if: ${{ github.ref == env.REF_STAGING && github.base_ref == REF_DEVELOP}}
+    runs-on: ubuntu-latest
+    name: Generates notes for develop to staging merges
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: generate notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        id: gennotes
+        with:
+          path-to-file: "./actions/release_notes_generator/release.json"
+          destination-branch: ${{ github.ref }}
+          base-branch: ${{ github.base_ref }}
+      - name: commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "release_notes@github.com"
+          git config --global user.name "RELEASE-bot"
+          git diff --quiet || (git add ./actions/release_notes_generator/release.json && git commit -m "Updated Release notes")
+          git push

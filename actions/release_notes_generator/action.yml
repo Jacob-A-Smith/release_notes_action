@@ -2,17 +2,14 @@ name: 'Generate release notes'
 description: 'Generates release notes based on git history'
 inputs:
     path-to-file:
-        description: 'Path to git log file'
+        description: 'Destination path to write git log file to'
         required: true
         default: './release.json'
-    master-branch:
-        description: 'ref to master'
+    destination-branch:
+        description: 'git ref to destination branch'
         required: true
-    staging-branch:
-        description: 'ref to staging'
-        required: true
-    develop-branch:
-        description: 'ref to develop'
+    base-branch:
+        description: 'git ref to base branch'
         required: true
 outputs:
     success:

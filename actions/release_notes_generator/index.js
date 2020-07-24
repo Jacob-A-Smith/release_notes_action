@@ -14,9 +14,12 @@ try {
 
     const payload = github.context.payload
     const pathToFile = core.getInput('path-to-file');
-    const master = core.getInput('master-branch');
-    const staging = core.getInput('staging-branch')
-    const develop = core.getInput('develop-branch')
+    const destination = core.getInput('destination-branch');
+    const base = core.getInput('base-branch');
+    console.log(`DESTINATION: ${destination} - BASE: ${base}`);
+    // const master = core.getInput('master-branch');
+    // const staging = core.getInput('staging-branch')
+    // const develop = core.getInput('develop-branch')
 
     // let refs = stringify(github.context.payload.ref).split("/")[2] // ?
     // console.log(`REFS: Master: ${master} - Staging: ${staging} - Develop: ${develop}`);
@@ -30,7 +33,7 @@ try {
     }
     console.log(`Commit: ${JSON.stringify(entry, undefined, 2)}`);
 
-    let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2);
+    /*let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2);
 
     // payload.base_ref
     switch (payload.ref) {
@@ -55,7 +58,7 @@ try {
     fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
-    });
+    });*/
 } catch (error) {
     core.setFailed(error.message);
 }
