@@ -35,7 +35,7 @@ try {
     switch (payload.ref) {
         case master:
             console.log("MASTER")
-            appendToDevelop(entry, prevCommits, "master")
+            appendToMaster(entry, prevCommits, "master")
             break;
         case staging:
             console.log("STAGING")
@@ -58,7 +58,7 @@ try {
     core.setFailed(error.message);
 }
 
-function appendToDevelop(commit, prevCommits, branchRef) {
+function appendToMaster(commit, prevCommits, branchRef) {
     if (!(branchRef in prevCommits)) {
         prevCommits[branchRef] = []
     }
@@ -66,6 +66,13 @@ function appendToDevelop(commit, prevCommits, branchRef) {
 }
 
 function appendToStaging(commit, prevCommits, branchRef) {
+    if (!(branchRef in prevCommits)) {
+        prevCommits[branchRef] = []
+    }
+    prevCommits[branchRef].push(commit)
+}
+
+function appendToDevelop(commit, prevCommits, branchRef) {
     if (!(branchRef in prevCommits)) {
         prevCommits[branchRef] = []
     }
