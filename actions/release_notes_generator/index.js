@@ -32,6 +32,7 @@ try {
 
     let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2);
 
+    // payload.base_ref
     switch (payload.ref) {
         case master:
             console.log("MASTER")
@@ -39,7 +40,7 @@ try {
             break;
         case staging:
             console.log("STAGING")
-            appendToStaging(commit, prevCommits, "staging")
+            appendToStaging(entry, prevCommits, "staging")
             break;
         case develop:
             console.log("DEVELOP")
