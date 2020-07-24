@@ -14,13 +14,13 @@ on:
 
 jobs:
   develop_logger:
+    if: ${{ github.ref == "refs/heads/develop"}}
     env: 
       DEVELOP: "refs/heads/develop"
     runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
       - name: Checkout
-        if: ${{ github.ref == env.DEVELOP}}
         uses: actions/checkout@v2
       - name: generate notes
         if: ${{ success() }}
@@ -37,6 +37,7 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/develop_changelog.json && git commit -m "Updated Release notes")
           git push
   staging_logger:
+    if: ${{ github.ref == "refs/heads/staging" }}
     env:
       STAGING: "refs/heads/staging"
     runs-on: ubuntu-latest
@@ -44,7 +45,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        if: ${{ github.ref == env.STAGING }}
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
@@ -60,6 +60,7 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
           git push
   master_logger:
+    if: ${{ github.ref == "refs/heads/master" }}
     env:
       MASTER: "refs/heads/master"
     runs-on: ubuntu-latest
@@ -67,7 +68,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        if: ${{ github.ref == env.MASTER }}
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
