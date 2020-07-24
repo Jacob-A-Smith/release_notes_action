@@ -9,7 +9,7 @@ console.log('Entering release notes generator')
 
 try {
     // console.log(`Path to file: ${core.getInput('path-to-file')}`);
-    // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
+    console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`)
     // console.log(`REF: ${core.getInput('branch-name')}`);
 
     const payload = github.context.payload
@@ -39,6 +39,7 @@ try {
             break;
         case staging:
             console.log("STAGING")
+            // appendToStaging(commit)
             break;
         case develop:
             console.log("DEVELOP")
@@ -58,6 +59,13 @@ try {
 }
 
 function appendToDevelop(commit, prevCommits, branchRef) {
+    if (!(branchRef in prevCommits)) {
+        prevCommits[branchRef] = []
+    }
+    prevCommits[branchRef].push(commit)
+}
+
+function appendToStaging(commit, prevCommits, branchRef) {
     if (!(branchRef in prevCommits)) {
         prevCommits[branchRef] = []
     }
