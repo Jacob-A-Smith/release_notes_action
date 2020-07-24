@@ -6,6 +6,13 @@
       "message": "fix release.json p2",
       "date": "2020-07-24T09:09:59-04:00",
       "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/a0dcc6775cc8a8328d1de3e24751fd417272aa8e"
+    },
+    {
+      "author": "Jacob Smith",
+      "email": "jsmith@sparkfly.com",
+      "message": "add if to check for success in previous steps",
+      "date": "2020-07-24T09:15:35-04:00",
+      "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/aea4348583e040671b172e485b526c7a63089b97"
     }
   ]
 }
