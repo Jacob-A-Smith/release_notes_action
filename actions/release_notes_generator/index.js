@@ -32,10 +32,7 @@ try {
     }
     console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
-    // let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2) || { "history": [] };
-    // prevCommits["history"].push(entry)
     let prevCommits = readPrevCommits(pathToFile)
-    // prevCommits.history.push(entry)
     entries.forEach((entry) => {
         prevCommits.history.push(entry)
     })
