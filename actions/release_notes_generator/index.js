@@ -39,14 +39,15 @@ try {
             break;
         case staging:
             console.log("STAGING")
-            // appendToStaging(commit)
+            appendToStaging(commit, prevCommits, "staging")
             break;
         case develop:
             console.log("DEVELOP")
-            // appendToDevelop(entry, prevCommits, "develop")
+            appendToDevelop(entry, prevCommits, "develop")
             break;
         default:
             console.log("DEFAULT")
+            appendToDevelop(entry, prevCommits, payload.ref)
             break;
     }
 
