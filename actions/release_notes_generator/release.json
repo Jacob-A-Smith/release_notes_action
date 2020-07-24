@@ -23,5 +23,14 @@
       "date": "2020-07-24T09:41:02-04:00",
       "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/ca61ad55d77ddebb8e4d91e479cc3395b95a1f3f"
     }
+  ],
+  "staging": [
+    {
+      "author": "Jacob Smith",
+      "email": "jsmith@sparkfly.com",
+      "message": "fix typo",
+      "date": "2020-07-24T09:50:57-04:00",
+      "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/aabac98f868505ee1893583a28473d13bf30a777"
+    }
   ]
 }
