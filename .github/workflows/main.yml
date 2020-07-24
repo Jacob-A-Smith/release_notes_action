@@ -8,13 +8,13 @@ on:
       - develop
 
 env:
-  MASTER: "refs/heads/master"
-  STAGING: "refs/heads/staging"
-  DEVELOP: "refs/heads/develop"
+  MASTER: refs/heads/master
+  STAGING: refs/heads/staging
+  DEVELOP: refs/heads/develop
 
 jobs:
   develop_logger:
-    if: ${{ github.ref }} == ${{ env.DEVELOP }}
+    if: github.ref == env.DEVELOP
     # env: 
       # DEVELOP: "refs/heads/develop"
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/develop_changelog.json && git commit -m "Updated Release notes")
           git push
   staging_logger:
-    if: ${{ github.ref }} == ${{ env.STAGING }}
+    if: github.ref == env.STAGING
     # env:
       # STAGING: "refs/heads/staging"
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
           git push
   master_logger:
-    if: ${{ github.ref }} == ${{ env.MASTER }}
+    if: github.ref == env.MASTER
     # env:
       # MASTER: "refs/heads/master"
     runs-on: ubuntu-latest
