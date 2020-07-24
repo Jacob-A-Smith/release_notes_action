@@ -13,6 +13,13 @@
       "message": "add if to check for success in previous steps",
       "date": "2020-07-24T09:15:35-04:00",
       "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/aea4348583e040671b172e485b526c7a63089b97"
+    },
+    {
+      "author": "RELEASE-bot",
+      "email": "release_notes@github.com",
+      "message": "Updated Release notes",
+      "date": "2020-07-24T14:46:38Z",
+      "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/256f695dee92a470aed84b9c0550037ee040f72c"
     }
   ],
   "develop": [
