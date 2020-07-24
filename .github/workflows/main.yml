@@ -14,7 +14,7 @@ env:
 
 jobs:
   develop_logger:
-    if: ${{ github.ref == REF_DEVELOP}}
+    if: ${{ github.ref == env.REF_DEVELOP}}
     runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
@@ -35,7 +35,7 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/develop_changelog.json && git commit -m "Updated Release notes")
           git push
   staging_logger:
-    if: ${{ github.ref == REF_STAGING }}
+    if: ${{ github.ref == env.REF_STAGING }}
     runs-on: ubuntu-latest
     name: Generates notes for staging commits
     steps:
@@ -47,8 +47,7 @@ jobs:
         # id: gennotes
         with:
           path-to-file: "./actions/release_notes_generator/staging_changlog.json"
-          destination-branch: ${{ env.REF_STAGING }}
-          base-branch: ${{ env.REF_DEVELOP }}
+          branch-ref: ${{ env.REF_STAGING }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
@@ -57,20 +56,19 @@ jobs:
           git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changlog.json && git commit -m "Updated Release notes")
           git push
   master_logger:
-    if: ${{ github.ref == REF_MASTER }}
+    if: ${{ github.ref == env.REF_MASTER }}
     runs-on: ubuntu-latest
     name: Generates notes for master commits
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: generate notes
-        # if: ${{ success() }}
+        if: ${{ success() }}
         uses: ./actions/release_notes_generator
-        id: gennotes
+        # id: gennotes
         with:
           path-to-file: "./actions/release_notes_generator/master_changelog.json"
-          destination-branch: ${{ env.REF_MASTER }}
-          base-branch: ${{ env.REF_STAGING }}
+          branch-ref: ${{ env.REF_MASTER }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
