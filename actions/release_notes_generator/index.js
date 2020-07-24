@@ -14,9 +14,10 @@ try {
 
     const payload = github.context.payload
     const pathToFile = core.getInput('path-to-file');
-    const destination = core.getInput('destination-branch');
-    const base = core.getInput('base-branch');
-    console.log(`DESTINATION: ${destination} - BASE: ${base}`);
+    // const destination = core.getInput('destination-branch');
+    // const base = core.getInput('base-branch');
+    const branch = core.getInput('branch-name');
+    console.log(`BRANCH NAME: ${branch}`);
     // const master = core.getInput('master-branch');
     // const staging = core.getInput('staging-branch')
     // const develop = core.getInput('develop-branch')

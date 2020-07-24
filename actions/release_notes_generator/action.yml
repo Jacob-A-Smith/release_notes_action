@@ -4,13 +4,9 @@ inputs:
     path-to-file:
         description: 'Destination path to write git log file to'
         required: true
-        default: './release.json'
-    destination-branch:
-        description: 'git ref to destination branch'
+    branch-ref:
+        description: 'git ref to (name of) destination branch'
         required: true
-    base-branch:
-        description: 'git ref to base branch'
-        required: false
 outputs:
     success:
         description: indication of success or failure
