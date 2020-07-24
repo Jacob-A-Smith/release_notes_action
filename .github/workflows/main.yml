@@ -16,11 +16,11 @@ jobs:
   develop_logger:
     env: 
       DEVELOP: "refs/heads/develop"
-    if: ${{ github.ref == env.DEVELOP}}
     runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
       - name: Checkout
+        if: ${{ github.ref == env.DEVELOP}}
         uses: actions/checkout@v2
       - name: generate notes
         if: ${{ success() }}
@@ -39,12 +39,12 @@ jobs:
   staging_logger:
     env:
       STAGING: "refs/heads/staging"
-    if: ${{ github.ref == env.STAGING }}
     runs-on: ubuntu-latest
     name: Generates notes for staging commits
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        if: ${{ github.ref == env.STAGING }}
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
@@ -62,12 +62,12 @@ jobs:
   master_logger:
     env:
       MASTER: "refs/heads/master"
-    if: ${{ github.ref == env.MASTER }}
     runs-on: ubuntu-latest
     name: Generates notes for master commits
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        if: ${{ github.ref == env.MASTER }}
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
