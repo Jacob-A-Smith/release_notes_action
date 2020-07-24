@@ -25,6 +25,7 @@ try {
     // let prevCommits = JSON.parse(fs.readFileSync(pathToFile, 'utf8').toString(), undefined, 2) || { "history": [] };
     // prevCommits["history"].push(entry)
     let prevCommits = readPrevCommits(pathToFile)
+    prevCommits.history.push(entry)
 
     fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
