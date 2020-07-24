@@ -27,13 +27,13 @@ try {
             "email": payload.commits[i].author.email,
             "message": payload.commits[i].message,
             "date": payload.commits[i].timestamp,
-            "git url": payload.commits[i].url
+            "gitURL": payload.commits[i].url
         })
     }
     console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
     let prevCommits = readPrevCommits(pathToFile)
-    prevCommits.history.concat(entries)
+    prevCommits.history = prevCommits.history.concat(entries)
     // entries.forEach((entry) => {
     // prevCommits.history.push(entry)
     // })
