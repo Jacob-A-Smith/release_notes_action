@@ -4,4 +4,10 @@ undefined{
   "message": "read/write file sync",
   "date": "2020-07-23T21:19:00-04:00",
   "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/64bb0c7fe636797fc41615be48e50f20c84c178b"
+}{
+  "author": "Jacob Smith",
+  "email": "jsmith@sparkfly.com",
+  "message": "correct read file",
+  "date": "2020-07-23T21:22:28-04:00",
+  "git url": "https://github.com/Jacob-A-Smith/release_notes_action/commit/07376d1aa638ce0dd8b39e2c932e71b610db4ba1"
 }
