@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate release notes
         if: ${{ success() }}
-        uses: ./actions/release_notes_generator
+        uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.DEVELOP_FILE }}
           branch-ref: ${{ env.DEVELOP }}
@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate release notes
         if: ${{ success() }}
-        uses: ./actions/release_notes_generator
+        uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.STAGING_FILE }}
           branch-ref: ${{ env.STAGING }}
@@ -68,7 +68,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate release notes
         if: ${{ success() }}
-        uses: ./actions/release_notes_generator
+        uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.MASTER_FILE }}
           branch-ref: ${{ env.MASTER }}
