@@ -14,9 +14,9 @@ env:
   MASTER_FILE: ./actions/release_notes_generator/changelogs/master_changelog.json
   STAGING_FILE: ./actions/release_notes_generator/changelogs/staging_changelog.json
   DEVELOP_FILE: ./actions/release_notes_generator/changelogs/develop_changelog.json
-  USER_NAME: "RELEASE_bot"
-  USER_EMAIL: "release_bot@github.com"
-  USER_MESSAGE: "Generated release notes"
+  USER_NAME: RELEASE_bot
+  USER_EMAIL: release_bot@github.com
+  USER_MESSAGE: Generated release notes
 
 jobs:
   develop_logger:
@@ -35,9 +35,9 @@ jobs:
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
-          git config --global user.email ${{ env.USER_EMAIL }}
-          git config --global user.name ${{ env.USER_NAME }}
-          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m ${{ env.USER_MESSAGE }})
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
           git push
   staging_logger:
     if: github.ref == 'refs/heads/staging'
@@ -55,9 +55,9 @@ jobs:
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
-          git config --global user.email ${{ env.USER_EMAIL }}
-          git config --global user.name ${{ env.USER_NAME }}
-          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m ${{ env.USER_MESSAGE }})
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
           git push
   master_logger:
     if: github.ref == 'refs/heads/master'
@@ -75,7 +75,7 @@ jobs:
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
-          git config --global user.email ${{ env.USER_EMAIL }}
-          git config --global user.name ${{ env.USER_NAME }}
-          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m ${{ env.USER_MESSAGE }})
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
           git push
