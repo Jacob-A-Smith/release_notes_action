@@ -17,6 +17,22 @@
         "date": "2020-07-25T13:02:32-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4c6d00cbcdb49bb8a4e136bbfe27ba10402b8fa8"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "reorganize folders",
+        "date": "2020-07-25T13:07:47-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/49516259c28390360e7200282aa729b393da6364"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "update path",
+        "date": "2020-07-25T13:09:06-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4fba49584b7ae4cf0dab30f51ae05230313c4841"
+      }
     ]
   ]
 }
