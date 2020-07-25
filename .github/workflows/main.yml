@@ -11,12 +11,11 @@ env:
   MASTER: refs/heads/master
   STAGING: refs/heads/staging
   DEVELOP: refs/heads/develop
+  STAGING_FILE: ./actions/release_notes_generator/changelogs/staging_changelog.json
 
 jobs:
   develop_logger:
     if: github.ref == 'refs/heads/develop'
-    # env: 
-      # DEVELOP: "refs/heads/develop"
     runs-on: ubuntu-latest
     name: Generates notes for develop commits
     steps:
@@ -25,7 +24,6 @@ jobs:
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
-        # id: gen_notes_dev
         with:
           path-to-file: "./actions/release_notes_generator/changelogs/develop_changelog.json"
           branch-ref: ${{ env.DEVELOP }}
@@ -38,8 +36,6 @@ jobs:
           git push
   staging_logger:
     if: github.ref == 'refs/heads/staging'
-    # env:
-      # STAGING: "refs/heads/staging"
     runs-on: ubuntu-latest
     name: Generates notes for staging commits
     steps:
@@ -48,21 +44,18 @@ jobs:
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
-        # id: gennotes
         with:
-          path-to-file: "./actions/release_notes_generator/changelogs/staging_changelog.json"
+          path-to-file: ${{ env.STAGING_FILE }}
           branch-ref: ${{ env.STAGING }}
       - name: commit release notes
         if: ${{ success() }}
         run: |-
           git config --global user.email "release_notes@github.com"
           git config --global user.name "RELEASE_bot"
-          git diff --quiet || (git add ./actions/release_notes_generator/changelogs/staging_changelog.json && git commit -m "Updated Release notes")
+          git diff --quiet || (git add ${{ env.STAGING_FILE }} && git commit -m "Updated Release notes")
           git push
   master_logger:
     if: github.ref == 'refs/heads/master'
-    # env:
-      # MASTER: "refs/heads/master"
     runs-on: ubuntu-latest
     name: Generates notes for master commits
     steps:
@@ -71,7 +64,6 @@ jobs:
       - name: generate notes
         if: ${{ success() }}
         uses: ./actions/release_notes_generator
-        # id: gennotes
         with:
           path-to-file: "./actions/release_notes_generator/changelogs/master_changelog.json"
           branch-ref: ${{ env.MASTER }}
