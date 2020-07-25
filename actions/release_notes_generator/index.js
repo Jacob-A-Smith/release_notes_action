@@ -53,11 +53,12 @@ try {
 }
 
 function readPrevCommits(filepath) {
-    let data = fs.readFileSync(filepath, 'utf8').toString()
-    console.log(`READ DATA: \n${data}`)
-    if (data != "") {
+    let data = fs.readFileSync(filepath, 'utf8').toString();
+    console.log(`READ DATA: \n${data}`);
+    if (data) {
         try {
-            prevCommits = JSON.parse(data)
+            let prevCommits = JSON.parse(data);
+            return prevCommits;
         } catch (e) {
             console.log(`error parsing: ${e}`);
         }
