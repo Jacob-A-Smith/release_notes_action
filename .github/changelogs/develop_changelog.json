@@ -33,6 +33,15 @@
         "date": "2020-07-25T13:09:06-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4fba49584b7ae4cf0dab30f51ae05230313c4841"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "remove branch ref, move changelogs",
+        "date": "2020-07-25T13:18:48-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/35a3a560097b812a8a7727d0dbf3bfd9a5529e27"
+      }
     ]
   ]
 }
