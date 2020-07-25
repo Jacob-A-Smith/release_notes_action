@@ -54,7 +54,8 @@ try {
 
 function readPrevCommits(filepath) {
     let data = fs.readFileSync(filepath, 'utf8').toString()
-    if (data) {
+    console.log(`READ DATA: \n${data}`)
+    if (data != "") {
         try {
             prevCommits = JSON.parse(data)
         } catch (e) {
