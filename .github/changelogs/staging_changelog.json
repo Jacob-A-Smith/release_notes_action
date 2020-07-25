@@ -65,6 +65,92 @@
         "date": "2020-07-25T12:28:01-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/352fff746f1dbb690e8e26542363add06f0f4cf7"
       }
+    ],
+    [
+      {
+        "author": "RELEASE-bot",
+        "email": "release_notes@github.com",
+        "message": "Updated Release notes",
+        "date": "2020-07-24T14:48:55Z",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4c0ea27e0d3dfad0efb5ccf9ccb601e8bafee330"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "Merge branch 'staging'\n\n# Conflicts:\n#\tactions/release_notes_generator/release.json",
+        "date": "2020-07-25T12:30:06-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/3d620aa05aa8566bf71ef7b2e508688b1bc79059"
+      },
+      {
+        "author": "RELEASE_bot",
+        "email": "release_bot@github.com",
+        "message": "Generated release notes",
+        "date": "2020-07-25T16:30:26Z",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/a06bd72e1c2b8264184495ba2d6f138061f25513"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "error in log file, reorganize index.js",
+        "date": "2020-07-25T12:59:45-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4bedc074490f336997820d223515607552848e4d"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "fix name bug",
+        "date": "2020-07-25T13:01:12-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/b6f0af58c6ac34152a130f8e9f03fe7dc4df6c9d"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "more name fixes",
+        "date": "2020-07-25T13:02:32-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4c6d00cbcdb49bb8a4e136bbfe27ba10402b8fa8"
+      },
+      {
+        "author": "RELEASE_bot",
+        "email": "release_bot@github.com",
+        "message": "Generated release notes",
+        "date": "2020-07-25T17:02:49Z",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/43ffe59486e56ced3443c89d298db96674879753"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "reorganize folders",
+        "date": "2020-07-25T13:07:47-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/49516259c28390360e7200282aa729b393da6364"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "update path",
+        "date": "2020-07-25T13:09:06-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4fba49584b7ae4cf0dab30f51ae05230313c4841"
+      },
+      {
+        "author": "RELEASE_bot",
+        "email": "release_bot@github.com",
+        "message": "Generated release notes",
+        "date": "2020-07-25T17:10:28Z",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/a1a1aec0d508df3cdfa0e01e23039ef04cc4a09a"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "remove branch ref, move changelogs",
+        "date": "2020-07-25T13:18:48-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/35a3a560097b812a8a7727d0dbf3bfd9a5529e27"
+      },
+      {
+        "author": "RELEASE_bot",
+        "email": "release_bot@github.com",
+        "message": "Generated release notes",
+        "date": "2020-07-25T17:19:10Z",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/240ddfcc39ab803efc0ea60fc92b6fea14eb8d8d"
+      }
     ]
   ]
 }
