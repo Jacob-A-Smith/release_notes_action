@@ -4,9 +4,6 @@ inputs:
     path-to-file:
         description: 'Destination path to write git log file to'
         required: true
-    branch-ref:
-        description: 'git ref to (name of) destination branch'
-        required: true
 outputs:
     success:
         description: indication of success or failure

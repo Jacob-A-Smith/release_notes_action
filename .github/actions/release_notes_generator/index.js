@@ -34,23 +34,22 @@ try {
     // SETUP //
     const payload = github.context.payload;
     const pathToFile = core.getInput('path-to-file');
-    const branch = core.getInput('branch-name');
-    console.log(`BRANCH NAME: ${branch} --- PATH TO FILE: ${pathToFile}`);
+    console.log(` > Path to log file: ${pathToFile}`);
     // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
     let entries = parseCommits(payload.commits)
-    console.log(`Payload parsed, ${entries.length} new commit(s) detected`)
+    console.log(` > Payload parsed, ${entries.length} new commit(s) detected`)
     // console.log(`COMMITS: ${JSON.stringify(entries, undefined, 2)}`);
 
     // READ IN PREVIOUS ENTRIES //
     let history = readPrevCommits(pathToFile);
-    console.log(`Commit history parsed, ${history.entries.length} previous entries read`);
+    console.log(` > Commit history parsed, ${history.entries.length} previous entries read`);
     // console.log(`PREVIOUS ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
 
     // APPEND NEW DATA TO OLD //
     history.entries.push(entries);
-    console.log(`Added new entry to log file, ${history.entries.length} entries total`);
+    console.log(` > Added new entry to log file, ${history.entries.length} entries total`);
     // console.log(`UPDATED ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
 
     // WRITE DATA & EXIT //
@@ -58,7 +57,7 @@ try {
         if (err) {
             throw err;
         }
-        console.log(`done logging commit(s) to file: ${pathToFile}`);
+        console.log(` > Done logging commit(s) to file: ${pathToFile}`);
         console.log('Exiting release notes generator safely');
     });
 } catch (error) {

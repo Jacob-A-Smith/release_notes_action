@@ -8,12 +8,12 @@ on:
       - develop
 
 env:
-  MASTER: refs/heads/master
-  STAGING: refs/heads/staging
-  DEVELOP: refs/heads/develop
-  MASTER_FILE: ./.github/actions/release_notes_generator/changelogs/master_changelog.json
-  STAGING_FILE: ./.github/actions/release_notes_generator/changelogs/staging_changelog.json
-  DEVELOP_FILE: ./.github/actions/release_notes_generator/changelogs/develop_changelog.json
+  # MASTER: refs/heads/master
+  # STAGING: refs/heads/staging
+  # DEVELOP: refs/heads/develop
+  MASTER_FILE: ./.github/changelogs/master_changelog.json
+  STAGING_FILE: ./.github/changelogs/staging_changelog.json
+  DEVELOP_FILE: ./.github/changelogs/develop_changelog.json
   USER_NAME: RELEASE_bot
   USER_EMAIL: release_bot@github.com
   USER_MESSAGE: Generated release notes
@@ -31,7 +31,6 @@ jobs:
         uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.DEVELOP_FILE }}
-          branch-ref: ${{ env.DEVELOP }}
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
@@ -51,7 +50,6 @@ jobs:
         uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.STAGING_FILE }}
-          branch-ref: ${{ env.STAGING }}
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
@@ -71,7 +69,6 @@ jobs:
         uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.MASTER_FILE }}
-          branch-ref: ${{ env.MASTER }}
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
