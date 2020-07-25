@@ -20,7 +20,7 @@ try {
          "date": payload.head_commit.timestamp,
          "git url": payload.head_commit.url
      }*/
-    let entries = []
+    let entries = [];
     for (i = 0; i < payload.commits.length; ++i) {
         entries.push({
             "author": payload.commits[i].author.name,
@@ -28,18 +28,20 @@ try {
             "message": payload.commits[i].message,
             "date": payload.commits[i].timestamp,
             "gitURL": payload.commits[i].url
-        })
+        });
     }
     console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
-    let prevCommits = readPrevCommits(pathToFile)
+    let prevCommits = readPrevCommits(pathToFile);
     // prevCommits.history = prevCommits.history.concat(entries)
     // entries.forEach((entry) => {
     // prevCommits.history.push(entry)
     // })
+    console.log(`PREVIOUS COMMITS: \n${JSON.stringify(prevCommits, undefined, 2)}`);
     let writeDate = {
         "history": [...prevCommits.history, ...entries]
     }
+    console.log(`WRITE DATA: \n${JSON.stringify(writeDate, undefined, 2)}`);
 
     fs.writeFile(pathToFile, JSON.stringify(writeDate, undefined, 2), err => {
         if (err) throw err;
