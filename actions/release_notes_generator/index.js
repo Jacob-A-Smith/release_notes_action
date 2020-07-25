@@ -54,11 +54,11 @@ try {
     // console.log(`UPDATED ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
 
     // WRITE DATA & EXIT //
-    fs.writeFile(filepath, JSON.stringify(data, undefined, 2), err => {
+    fs.writeFile(pathToFile, JSON.stringify(history, undefined, 2), err => {
         if (err) {
             throw err;
         }
-        console.log(`done logging commit(s) to file: ${filepath}`);
+        console.log(`done logging commit(s) to file: ${pathToFile}`);
         console.log('Exiting release notes generator safely');
     });
 } catch (error) {
