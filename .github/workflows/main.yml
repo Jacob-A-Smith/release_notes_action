@@ -11,9 +11,9 @@ env:
   MASTER: refs/heads/master
   STAGING: refs/heads/staging
   DEVELOP: refs/heads/develop
-  MASTER_FILE: ./actions/release_notes_generator/changelogs/master_changelog.json
-  STAGING_FILE: ./actions/release_notes_generator/changelogs/staging_changelog.json
-  DEVELOP_FILE: ./actions/release_notes_generator/changelogs/develop_changelog.json
+  MASTER_FILE: ./.github/actions/release_notes_generator/changelogs/master_changelog.json
+  STAGING_FILE: ./.github/actions/release_notes_generator/changelogs/staging_changelog.json
+  DEVELOP_FILE: ./.github/actions/release_notes_generator/changelogs/develop_changelog.json
   USER_NAME: RELEASE_bot
   USER_EMAIL: release_bot@github.com
   USER_MESSAGE: Generated release notes
