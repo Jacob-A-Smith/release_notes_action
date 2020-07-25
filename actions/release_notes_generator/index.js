@@ -41,7 +41,7 @@ try {
     history.history.push(entries)
     console.log(`PREVIOUS COMMITS: \n${JSON.stringify(history, undefined, 2)}`);
 
-    fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
+    fs.writeFile(pathToFile, JSON.stringify(history, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
