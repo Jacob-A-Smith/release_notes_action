@@ -56,6 +56,15 @@
         "date": "2020-07-25T12:26:01-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/f0fd56229d7b0e96345f48a614dca49ee9d87e14"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "fix master branch workflow",
+        "date": "2020-07-25T12:28:01-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/352fff746f1dbb690e8e26542363add06f0f4cf7"
+      }
     ]
   ]
 }
