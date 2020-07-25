@@ -75,7 +75,7 @@ jobs:
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
-          git config --global user.email ${{ env.USER_EMAIL }}
-          git config --global user.name ${{ env.USER_NAME }}
-          git diff --quiet || (git add ${{ env.MASTER_FILE }} && git commit -m ${{ env.USER_MESSAGE }})
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.MASTER_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
           git push
