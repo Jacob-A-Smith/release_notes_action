@@ -3,9 +3,9 @@
     {
       "author": "Jacob Smith",
       "email": "jsmith@sparkfly.com",
-      "message": "fix concat",
-      "date": "2020-07-24T16:37:32-04:00",
-      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/8437b7e072cc7a26bf82a2688269b5daf384e69b"
+      "message": "combine arrays",
+      "date": "2020-07-25T11:38:03-04:00",
+      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/767f5a8775da836a2ab70ecf1d79f324a0051059"
     }
   ]
 }
