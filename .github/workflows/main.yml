@@ -1,34 +1,81 @@
+name: Release note logger
+
 on:
   push:
-    # branches:
-      # - master
-      # - staging
-      # - develop
+    branches:
+      - master
+      - staging
+      - develop
+
+env:
+  MASTER: refs/heads/master
+  STAGING: refs/heads/staging
+  DEVELOP: refs/heads/develop
+  MASTER_FILE: ./actions/release_notes_generator/changelogs/master_changelog.json
+  STAGING_FILE: ./actions/release_notes_generator/changelogs/staging_changelog.json
+  DEVELOP_FILE: ./actions/release_notes_generator/changelogs/develop_changelog.json
+  USER_NAME: RELEASE_bot
+  USER_EMAIL: release_bot@github.com
+  USER_MESSAGE: Generated release notes
 
 jobs:
-    release_gen_job:
-        runs-on: ubuntu-latest
-        name: A job to generate release notes
-        env: 
-          REF_MASTER: "refs/heads/master"
-          REF_STAGING: "refs/heads/staging"
-          REF_DEVELOP: "refs/heads/develop"
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: generate notes
-              if: ${{ success() }}
-              uses: ./actions/release_notes_generator
-              id: gennotes
-              with:
-                path-to-file: "./actions/release_notes_generator/release.json"
-                master-branch: ${{ env.REF_MASTER }}
-                staging-branch: ${{ env.REF_STAGING }}
-                develop-branch: ${{ env.REF_DEVELOP }}
-            - name: commit release notes
-              if: ${{ success() }}
-              run: |-
-                git config --global user.email "release_notes@github.com"
-                git config --global user.name "RELEASE-bot"
-                git diff --quiet || (git add ./actions/release_notes_generator/release.json && git commit -m "Updated Release notes")
-                git push
+  develop_logger:
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    name: Develop logger
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate release notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        with:
+          path-to-file: ${{ env.DEVELOP_FILE }}
+          branch-ref: ${{ env.DEVELOP }}
+      - name: Commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+          git push
+  staging_logger:
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    name: Staging logger
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate release notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        with:
+          path-to-file: ${{ env.STAGING_FILE }}
+          branch-ref: ${{ env.STAGING }}
+      - name: Commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.STAGING_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+          git push
+  master_logger:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    name: Master logger
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate release notes
+        if: ${{ success() }}
+        uses: ./actions/release_notes_generator
+        with:
+          path-to-file: ${{ env.MASTER_FILE }}
+          branch-ref: ${{ env.MASTER }}
+      - name: Commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.MASTER_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+          git push
