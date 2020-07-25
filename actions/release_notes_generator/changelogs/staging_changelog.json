@@ -1,32 +1,34 @@
 {
-  "history": [
-    {
-      "author": "Jacob Smith",
-      "email": "jsmith@sparkfly.com",
-      "message": "more debug",
-      "date": "2020-07-25T11:43:53-04:00",
-      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/9f6c89c169d93d48f35aa62464584ebd491332c4"
-    },
-    {
-      "author": "Jacob Smith",
-      "email": "jsmith@sparkfly.com",
-      "message": "Merge branch 'staging' of ssh://github.com/Jacob-A-Smith/release_notes_action into staging",
-      "date": "2020-07-25T11:44:22-04:00",
-      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/b6867ed8db51a2c2e7946cb05259b9678a90c332"
-    },
-    {
-      "author": "Jacob Smith",
-      "email": "jsmith@sparkfly.com",
-      "message": "fix bugging in read file function",
-      "date": "2020-07-25T11:47:14-04:00",
-      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/14b9f8d331289ed4c9383e82061ba85b01519def"
-    },
-    {
-      "author": "Jacob Smith",
-      "email": "jsmith@sparkfly.com",
-      "message": "Merge branch 'staging' of ssh://github.com/Jacob-A-Smith/release_notes_action into staging",
-      "date": "2020-07-25T11:47:31-04:00",
-      "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/970f8324d66e8e7647abaa13765be40d975ef027"
-    }
-  ]
+    "history": [
+        [
+            {
+                "author": "Jacob Smith",
+                "email": "jsmith@sparkfly.com",
+                "message": "more debug",
+                "date": "2020-07-25T11:43:53-04:00",
+                "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/9f6c89c169d93d48f35aa62464584ebd491332c4"
+            },
+            {
+                "author": "Jacob Smith",
+                "email": "jsmith@sparkfly.com",
+                "message": "Merge branch 'staging' of ssh://github.com/Jacob-A-Smith/release_notes_action into staging",
+                "date": "2020-07-25T11:44:22-04:00",
+                "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/b6867ed8db51a2c2e7946cb05259b9678a90c332"
+            },
+            {
+                "author": "Jacob Smith",
+                "email": "jsmith@sparkfly.com",
+                "message": "fix bugging in read file function",
+                "date": "2020-07-25T11:47:14-04:00",
+                "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/14b9f8d331289ed4c9383e82061ba85b01519def"
+            },
+            {
+                "author": "Jacob Smith",
+                "email": "jsmith@sparkfly.com",
+                "message": "Merge branch 'staging' of ssh://github.com/Jacob-A-Smith/release_notes_action into staging",
+                "date": "2020-07-25T11:47:31-04:00",
+                "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/970f8324d66e8e7647abaa13765be40d975ef027"
+            }
+        ]
+    ]
 }

@@ -32,18 +32,16 @@ try {
     }
     console.log(`Commits: ${JSON.stringify(entries, undefined, 2)}`);
 
-    let prevCommits = readPrevCommits(pathToFile);
-    // prevCommits.history = prevCommits.history.concat(entries)
-    // entries.forEach((entry) => {
-    // prevCommits.history.push(entry)
-    // })
-    console.log(`PREVIOUS COMMITS: \n${JSON.stringify(prevCommits, undefined, 2)}`);
-    let writeDate = {
-        "history": [...prevCommits.history, ...entries]
-    }
-    console.log(`WRITE DATA: \n${JSON.stringify(writeDate, undefined, 2)}`);
+    let history = readPrevCommits(pathToFile);
+    // history.history = history.history.concat(entries)
+    // let writeDate = {
+    // "history": [...prevCommits.history, ...entries]
+    // }
+    // console.log(`WRITE DATA: \n${JSON.stringify(writeDate, undefined, 2)}`);
+    history.history.push(entries)
+    console.log(`PREVIOUS COMMITS: \n${JSON.stringify(history, undefined, 2)}`);
 
-    fs.writeFile(pathToFile, JSON.stringify(writeDate, undefined, 2), err => {
+    fs.writeFile(pathToFile, JSON.stringify(prevCommits, undefined, 2), err => {
         if (err) throw err;
         console.log("done writing");
     });
