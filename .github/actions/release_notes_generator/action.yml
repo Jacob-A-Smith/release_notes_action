@@ -4,6 +4,9 @@ inputs:
     path-to-file:
         description: 'Destination path to write git log file to'
         required: true
+    blacklist:
+        description: 'emails of users to ignore when logging commit history'
+        required: false
 outputs:
     success:
         description: indication of success or failure
