@@ -28,3 +28,4 @@ with:
 - extract jira ticket ?
 - handle failure to write data to file
 - Add blacklist
+- create file if it does not exist
