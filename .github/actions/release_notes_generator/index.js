@@ -18,7 +18,7 @@ function readPrevCommits(filepath) {
 function parseCommits(commitPayload, blacklist) {
     let commitData = [];
     for (i = 0; i < commitPayload.length; ++i) {
-        if (blacklist.indexOf(commitPayload.author.email) < 0) continue;
+        if (blacklist.indexOf(commitPayload[i].author.email) < 0) continue;
         commitData.push({
             "author": commitPayload[i].author.name,
             "email": commitPayload[i].author.email,
