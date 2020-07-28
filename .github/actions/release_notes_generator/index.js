@@ -16,9 +16,10 @@ function readPrevCommits(filepath) {
 }
 
 function parseCommits(commits, blacklist) {
-    console.log(` > PARSE COMMIT:\n\tCOMMITS\n\t${commits}\n\t${blacklist}`);
+    console.log(` > PARSE COMMIT:\n\tCOMMITS\n\t${JSON.stringify(commits)}\n\t${JSON.stringify(blacklist)}`);
     let commitData = [];
     for (let i = 0; i < commits.length; ++i) {
+        console.log(`Author: ${commits[i].author.email}`)
         if (blacklist.indexOf(commits[i].author.email) < 0) {
             continue;
         }
