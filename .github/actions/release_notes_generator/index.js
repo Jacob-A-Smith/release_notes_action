@@ -15,16 +15,19 @@ function readPrevCommits(filepath) {
     return { "entries": [] };
 }
 
-function parseCommits(commitPayload, blacklist) {
+function parseCommits(commits, blacklist) {
+    console.log(` > PARSE COMMIT:\n\tCOMMITS\n\t${commits}\n\t${blacklist}`);
     let commitData = [];
-    for (let i = 0; i < commitPayload.length; ++i) {
-        if (blacklist.indexOf(commitPayload[i].author.email) < 0) continue;
+    for (let i = 0; i < commits.length; ++i) {
+        if (blacklist.indexOf(commits[i].author.email) < 0) {
+            continue;
+        }
         commitData.push({
-            "author": commitPayload[i].author.name,
-            "email": commitPayload[i].author.email,
-            "message": commitPayload[i].message,
-            "date": commitPayload[i].timestamp,
-            "gitURL": commitPayload[i].url
+            "author": commits[i].author.name,
+            "email": commits[i].author.email,
+            "message": commits[i].message,
+            "date": commits[i].timestamp,
+            "gitURL": commits[i].url
         });
     }
     return commitData
@@ -37,7 +40,7 @@ try {
     const pathToFile = core.getInput('path-to-file');
     const blacklist = core.getInput('blacklist').split(',');
     console.log(` > Path to log file: ${pathToFile}`);
-    console.log(` > Blacklist: ${blacklist}`);
+    console.log(` > Blacklist: ${JSON.stringify(blacklist)}`);
     console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
@@ -51,9 +54,11 @@ try {
     // console.log(`PREVIOUS ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
 
     // APPEND NEW DATA TO OLD //
-    history.entries.push(entries);
-    console.log(` > Added new entry to log file, ${history.entries.length} entries total`);
-    // console.log(`UPDATED ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
+    if (entries.length > 0) {
+        history.entries.push(entries);
+        console.log(` > Added new entry to log file, ${history.entries.length} entries total`);
+        // console.log(`UPDATED ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
+    }
 
     // WRITE DATA & EXIT //
     fs.writeFile(pathToFile, JSON.stringify(history, undefined, 2), err => {
