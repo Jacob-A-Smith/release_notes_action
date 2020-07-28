@@ -16,11 +16,11 @@ function readPrevCommits(filepath) {
 }
 
 function parseCommits(commits, blacklist) {
-    console.log(` > PARSE COMMIT:\n\tCOMMITS\n\t${JSON.stringify(commits)}\n\t${JSON.stringify(blacklist)}`);
+    console.log(` > PARSE COMMIT:\n\tCOMMITS\n\t${JSON.stringify(commits, undefined, 2)}\n\t${JSON.stringify(blacklist)}`);
     let commitData = [];
     for (let i = 0; i < commits.length; ++i) {
         console.log(`Author: ${commits[i].author.email}`)
-        if (blacklist.indexOf(commits[i].author.email) < 0) {
+        if (blacklist.indexOf(commits[i].author.email) >= 0) {
             continue;
         }
         commitData.push({
@@ -42,7 +42,7 @@ try {
     const blacklist = core.getInput('blacklist').split(',');
     console.log(` > Path to log file: ${pathToFile}`);
     console.log(` > Blacklist: ${JSON.stringify(blacklist)}`);
-    console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
+    // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
     let entries = parseCommits(payload.commits, blacklist)
