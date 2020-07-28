@@ -51,6 +51,7 @@ jobs:
         uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.STAGING_FILE }}
+          blacklist: ${{ env.USER_EMAIL }}
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
@@ -70,6 +71,7 @@ jobs:
         uses: ./.github/actions/release_notes_generator
         with:
           path-to-file: ${{ env.MASTER_FILE }}
+          blacklist: ${{ env.USER_EMAIL }}
       - name: Commit release notes
         if: ${{ success() }}
         run: |-
