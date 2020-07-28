@@ -152,6 +152,71 @@
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/240ddfcc39ab803efc0ea60fc92b6fea14eb8d8d"
       }
     ],
-    []
+    [],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "debugging blacklist",
+        "date": "2020-07-28T15:23:34-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/ad1224adef7fb722640065efcb8ee57e07f0c5dd"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "need to declare iterator",
+        "date": "2020-07-28T15:25:51-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/d60983d4db3b35786619351168eabef26781251b"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "Merge branch 'develop' of ssh://github.com/Jacob-A-Smith/release_notes_action into develop",
+        "date": "2020-07-28T15:26:15-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/aa18f3e7a769b6c38c10fecd2506f699da56eaa4"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "traces for debugging",
+        "date": "2020-07-28T15:40:27-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/0a932b58989fff1b29388ff2b056a61cafcffc81"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "Merge branch 'develop' of ssh://github.com/Jacob-A-Smith/release_notes_action into develop",
+        "date": "2020-07-28T15:40:38-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/d34fd62475cf31eac34500d587e0743cab8ac5a8"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "more trace statements",
+        "date": "2020-07-28T15:45:20-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/856a39ba30ec5b31e6c60f563757125d00c0a4f5"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "fix for blacklist",
+        "date": "2020-07-28T15:47:53-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/42e895d922fe4955c10fa8d4a13c10454267a855"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "add blacklist to staging and master. clean up log file",
+        "date": "2020-07-28T15:52:14-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4a3a7ab842ef9f1160d65c076a764c2ba334aed1"
+      },
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "Merge branch 'develop' into staging",
+        "date": "2020-07-28T15:52:44-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/2393d053de31c3c20d453063c06302190866e04b"
+      }
+    ]
   ]
 }
