@@ -51,6 +51,15 @@
         "date": "2020-07-28T15:47:53-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/42e895d922fe4955c10fa8d4a13c10454267a855"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "add blacklist to staging and master. clean up log file",
+        "date": "2020-07-28T15:52:14-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4a3a7ab842ef9f1160d65c076a764c2ba334aed1"
+      }
     ]
   ]
 }
