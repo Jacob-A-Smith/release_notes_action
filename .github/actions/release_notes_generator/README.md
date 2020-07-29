@@ -27,5 +27,5 @@ with:
 - abstract to a git history logger action
 - extract jira ticket ?
 - handle failure to write data to file
-- Add blacklist
+<!-- - Add blacklist -->
 - create file if it does not exist
