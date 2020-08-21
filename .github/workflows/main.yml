@@ -6,6 +6,8 @@ on:
       - master
       - staging
       - develop
+    tags:
+      - 'v*.*'
 
 env:
   # MASTER: refs/heads/master
@@ -63,6 +65,25 @@ jobs:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     name: Master logger
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate release notes
+        if: ${{ success() }}
+        uses: ./.github/actions/release_notes_generator
+        with:
+          path-to-file: ${{ env.MASTER_FILE }}
+          blacklist: ${{ env.USER_EMAIL }}
+      - name: Commit release notes
+        if: ${{ success() }}
+        run: |-
+          git config --global user.email "${{ env.USER_EMAIL }}"
+          git config --global user.name "${{ env.USER_NAME }}"
+          git diff --quiet || (git add ${{ env.MASTER_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+          git push
+  tag_logger:
+    runs-on: ubuntu-latest
+    name: Tag logger
     steps:
       - name: Checkout
         uses: actions/checkout@v2

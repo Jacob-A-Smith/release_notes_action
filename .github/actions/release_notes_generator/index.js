@@ -40,7 +40,7 @@ try {
     const blacklist = core.getInput('blacklist').split(',');
     console.log(` > Path to log file: ${pathToFile}`);
     console.log(` > Blacklist: ${JSON.stringify(blacklist)}`);
-    // console.log(`The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
+    console.log(` > The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
     let entries = parseCommits(payload.commits, blacklist)
