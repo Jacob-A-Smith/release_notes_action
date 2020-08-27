@@ -1,3 +1,5 @@
+name: tag_logger
+
 on:
    push:
      tags:

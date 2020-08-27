@@ -6,8 +6,6 @@ on:
       - master
       - staging
       - develop
-    tags:
-      - 'v*.*'
 
 env:
   # MASTER: refs/heads/master
