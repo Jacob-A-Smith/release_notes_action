@@ -123,6 +123,15 @@
         "date": "2020-08-27T10:41:24-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/e15984c34d84aeea3d2a25559e9559333d4cde9e"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "add job",
+        "date": "2020-08-27T10:42:32-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/8511342dec31f2d1cc5ef76bb549a8481a6592bb"
+      }
     ]
   ]
 }
