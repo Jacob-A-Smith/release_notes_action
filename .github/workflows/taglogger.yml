@@ -17,22 +17,22 @@ env:
    USER_MESSAGE: Generated release notes
 
 jobs:
-   tag_logger:
-      runs-on: ubuntu-latest
-      name: Tag logger
-      steps:
-      - name: Checkout
-         uses: actions/checkout@v2
-      - name: Generate release notes
-         if: ${{ success() }}
-         uses: ./.github/actions/release_notes_generator
-         with:
-            path-to-file: ${{ env.DEVELOP_FILE }}
-            blacklist: ${{ env.USER_EMAIL }}
-      - name: Commit release notes
-         if: ${{ success() }}
-         run: |-
-            git config --global user.email "${{ env.USER_EMAIL }}"
-            git config --global user.name "${{ env.USER_NAME }}"
-            git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
-            git push
+  tag_logger:
+   runs-on: ubuntu-latest
+   name: Develop logger
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+     - name: Generate release notes
+       if: ${{ success() }}
+       uses: ./.github/actions/release_notes_generator
+       with:
+         path-to-file: ${{ env.DEVELOP_FILE }}
+         blacklist: ${{ env.USER_EMAIL }}
+     - name: Commit release notes
+       if: ${{ success() }}
+       run: |-
+         git config --global user.email "${{ env.USER_EMAIL }}"
+         git config --global user.name "${{ env.USER_NAME }}"
+         git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+         git push
