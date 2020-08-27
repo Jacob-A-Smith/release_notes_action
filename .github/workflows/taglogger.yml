@@ -42,5 +42,6 @@ jobs:
        run: |-
          git config --global user.email "${{ env.USER_EMAIL }}"
          git config --global user.name "${{ env.USER_NAME }}"
+         git pull origin develop
          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
          git push origin HEAD:develop
