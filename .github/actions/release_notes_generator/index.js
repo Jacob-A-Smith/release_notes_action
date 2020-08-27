@@ -65,7 +65,7 @@ try {
     console.log(` > The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
-    let entries = parsePayload(payload.commits, blacklist);
+    let entries = parsePayload(payload, blacklist);
     console.log(` > Payload parsed, ${entries.length} new commit(s) detected`);
     // console.log(`COMMITS: ${JSON.stringify(entries, undefined, 2)}`);
 
