@@ -35,4 +35,4 @@ jobs:
          git config --global user.email "${{ env.USER_EMAIL }}"
          git config --global user.name "${{ env.USER_NAME }}"
          git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
-         git push
+         git push origin HEAD:develop
