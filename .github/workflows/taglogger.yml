@@ -2,7 +2,7 @@ name: tag_logger
 
 on.push.tags: ['*']
  
- env:
+env:
    # MASTER: refs/heads/master
    # STAGING: refs/heads/staging
    # DEVELOP: refs/heads/develop
