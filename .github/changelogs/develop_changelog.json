@@ -193,6 +193,18 @@
     {
       "timestamp": 1598540906,
       "tag": "tagtestv8"
+    },
+    {
+      "timestamp": 1598542406,
+      "commits": [
+        {
+          "author": "Jacob Smith",
+          "email": "jsmith@sparkfly.com",
+          "message": "pull",
+          "date": "2020-08-27T11:33:16-04:00",
+          "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/c3c363a58df5d9db20116d9d218b20b7682d303c"
+        }
+      ]
     }
   ]
 }
