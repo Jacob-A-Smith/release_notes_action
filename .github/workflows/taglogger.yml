@@ -26,7 +26,7 @@ jobs:
      - name: checkout develop
        if: ${{ success() }}
        run: |-
-         git checkout origin HEAD:develop
+         git checkout develop
      - name: Generate release notes
        if: ${{ success() }}
        uses: ./.github/actions/release_notes_generator
