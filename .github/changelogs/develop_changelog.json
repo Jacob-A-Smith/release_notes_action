@@ -105,6 +105,15 @@
         "date": "2020-08-27T10:38:57-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/4a5e2fc115c23c4729468525d560c466cd370b44"
       }
+    ],
+    [
+      {
+        "author": "Jacob Smith",
+        "email": "jsmith@sparkfly.com",
+        "message": "still a syntax issue 2",
+        "date": "2020-08-27T10:40:07-04:00",
+        "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/a2fa2ff13126674f808bb0fa1c641ed8c07f488c"
+      }
     ]
   ]
 }
