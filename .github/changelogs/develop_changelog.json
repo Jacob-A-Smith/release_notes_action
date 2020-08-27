@@ -217,6 +217,18 @@
           "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/5eec476280cc4825886a7f087306b5cf36c5e6f2"
         }
       ]
+    },
+    {
+      "timestamp": 1598543019,
+      "commits": [
+        {
+          "author": "Jacob Smith",
+          "email": "jsmith@sparkfly.com",
+          "message": "add checkout step",
+          "date": "2020-08-27T11:43:32-04:00",
+          "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/031b36190f4fa7b4e6f721caea3123f1414e865e"
+        }
+      ]
     }
   ]
 }
