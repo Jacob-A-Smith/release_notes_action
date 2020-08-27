@@ -177,6 +177,18 @@
         "date": "2020-08-27T10:58:00-04:00",
         "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/de67a896d936bf31567e9a92ce0a8c786ff27886"
       }
-    ]
+    ],
+    {
+      "timestamp": 1598540792,
+      "commits": [
+        {
+          "author": "Jacob Smith",
+          "email": "jsmith@sparkfly.com",
+          "message": "bug fix",
+          "date": "2020-08-27T11:06:25-04:00",
+          "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/24cf4d0521b3d72aa1b7ec5130cfd03778a41f11"
+        }
+      ]
+    }
   ]
 }
