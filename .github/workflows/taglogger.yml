@@ -1,0 +1,36 @@
+on:
+   push:
+     tags:
+       - '*'
+ 
+ env:
+   # MASTER: refs/heads/master
+   # STAGING: refs/heads/staging
+   # DEVELOP: refs/heads/develop
+   MASTER_FILE: ./.github/changelogs/master_changelog.json
+   STAGING_FILE: ./.github/changelogs/staging_changelog.json
+   DEVELOP_FILE: ./.github/changelogs/develop_changelog.json
+   USER_NAME: RELEASE_bot
+   USER_EMAIL: release_bot@github.com
+   USER_MESSAGE: Generated release notes
+
+
+tag_logger:
+   runs-on: ubuntu-latest
+   name: Tag logger
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+     - name: Generate release notes
+       if: ${{ success() }}
+       uses: ./.github/actions/release_notes_generator
+       with:
+         path-to-file: ${{ env.DEVELOP_FILE }}
+         blacklist: ${{ env.USER_EMAIL }}
+     - name: Commit release notes
+       if: ${{ success() }}
+       run: |-
+         git config --global user.email "${{ env.USER_EMAIL }}"
+         git config --global user.name "${{ env.USER_NAME }}"
+         git diff --quiet || (git add ${{ env.DEVELOP_FILE }} && git commit -m "${{ env.USER_MESSAGE }}")
+         git push

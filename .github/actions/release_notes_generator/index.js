@@ -29,7 +29,7 @@ function parseCommits(commits, blacklist) {
             "gitURL": commits[i].url
         });
     }
-    return commitData
+    return commitData;
 }
 
 console.log('Entering release notes generator')
@@ -43,8 +43,8 @@ try {
     console.log(` > The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
-    let entries = parseCommits(payload.commits, blacklist)
-    console.log(` > Payload parsed, ${entries.length} new commit(s) detected`)
+    let entries = parseCommits(payload.commits, blacklist);
+    console.log(` > Payload parsed, ${entries.length} new commit(s) detected`);
     // console.log(`COMMITS: ${JSON.stringify(entries, undefined, 2)}`);
 
     // READ IN PREVIOUS ENTRIES //
