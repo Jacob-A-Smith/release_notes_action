@@ -229,6 +229,10 @@
           "gitURL": "https://github.com/Jacob-A-Smith/release_notes_action/commit/031b36190f4fa7b4e6f721caea3123f1414e865e"
         }
       ]
+    },
+    {
+      "timestamp": 1598543036,
+      "tag": "tagtest12"
     }
   ]
 }
