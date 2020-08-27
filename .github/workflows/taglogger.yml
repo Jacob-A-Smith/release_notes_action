@@ -1,9 +1,6 @@
 name: tag_logger
 
-on:
-   push:
-     tags:
-       - '*'
+on.push.tags: ['*']
  
  env:
    # MASTER: refs/heads/master
