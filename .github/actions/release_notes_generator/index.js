@@ -32,6 +32,28 @@ function parseCommits(commits, blacklist) {
     return commitData;
 }
 
+function parsePayload(payload, blacklist) {
+    let entry = {
+        timestamp: parseInt(payload.repository.pushed_at)
+    }
+    let tag = parseTag(payload.ref);
+    if (tag) {
+        entry.tag = tag;
+    } else {
+        entry.commits = parseCommits(payload.commits, blacklist);
+    }
+    return entry;
+}
+
+function parseTag(ref) {
+    t = String(ref).split('/')
+    console.log(t)
+    if (t.length === 3 && t[1] === 'tags') {
+        return t[2];
+    }
+    return null;
+}
+
 console.log('Entering release notes generator')
 try {
     // SETUP //
@@ -43,7 +65,7 @@ try {
     console.log(` > The event payload: ${JSON.stringify(github.context.payload, undefined, 2)}`);
 
     // PARSE GIT DATA //
-    let entries = parseCommits(payload.commits, blacklist);
+    let entries = parsePayload(payload.commits, blacklist);
     console.log(` > Payload parsed, ${entries.length} new commit(s) detected`);
     // console.log(`COMMITS: ${JSON.stringify(entries, undefined, 2)}`);
 
@@ -53,7 +75,7 @@ try {
     // console.log(`PREVIOUS ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
 
     // APPEND NEW DATA TO OLD //
-    if (entries.length > 0) {
+    if (entries) {
         history.entries.push(entries);
         console.log(` > Added new entry to log file, ${history.entries.length} entries total`);
         // console.log(`UPDATED ENTRIES: \n${JSON.stringify(history, undefined, 2)}`);
